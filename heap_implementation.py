@@ -20,7 +20,7 @@ def process_file(file_path=None):
         print("Using default file: " + file_path)
         return file_path
 
-
+# method for getting user input for X, aka number of times to pop from top of heap
 def getUserInput():
     while True:  
         user_input = input("Enter an integer value for X: ")
@@ -30,21 +30,23 @@ def getUserInput():
         except ValueError:  
             print("That's not a valid integer. Please try again.")
 
-
+#Method for reading the file
 def read_file(filename):
     with open(filename, 'r') as file:
         data = file.read().split()
     return [(int(data[i]), int(data[i+1])) for i in range(0, len(data), 2)]
 
-#To create a max heap, invert the array 
+#To create a max heap using heapq invert the array 
 def heapify_2d(arr):
     max_heap = [(-t[1], t) for t in arr]
     heapq.heapify(max_heap)
     return max_heap
 
+#Method for building the heap 
 def heappush(heap, item):
     heapq.heappush(heap, (-item[1], item))
-    
+
+#Method for poping the head form the heap    
 def heappop(heap):
     priority, item = heapq.heappop(heap)
     return item
