@@ -43,6 +43,9 @@ def heapify_2d(arr):
     return max_heap
 
 #Method for building the heap 
+# Method for building the heap 
+# time complexity of heappush is O(log n), where n is the number of elements in the heap.
+# or this case the number of lines in the file
 def heappush(heap, item):
     heapq.heappush(heap, (-item[1], item))
 
